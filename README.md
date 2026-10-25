@@ -1,46 +1,68 @@
-# Getting Started with Create React App
+ # Singh Lovepreet UI Garden (`singh-lovepreet-ui-garden`)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A customized React Web Component Library built with **TypeScript**, **Styled Components**, **Storybook**, and **Docker**.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📋 Table of Contents
+1. [Project Overview](#project-overview)
+2. [Prerequisites](#prerequisites)
+3. [Local Development Setup](#local-development-setup)
+4. [Running Tests](#running-tests)
+5. [Storybook UI Garden](#storybook-ui-garden)
+6. [Docker Deployment](#docker-deployment)
+7. [Full Git Workflow Commands](#full-git-workflow-commands)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🛠️ Project Overview
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This component library contains 9 customizable and accessible UI components designed following clean code and modern React principles:
+* **Button** (Active / Disabled states)
+* **Label**
+* **Text** (Multiple size variations)
+* **Card** (Active / Disabled states)
+* **Dropdown**
+* **RadioButton**
+* **Table** (Dynamic headers & data mapping)
+* **Img**
+* **HeroImage**
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ⚡ Prerequisites
 
-### `npm run build`
+Ensure you have the following installed on your system before proceeding:
+* **Node.js**: `v18.x` or higher
+* **npm**: `v9.x` or higher
+* **Docker Desktop** (with WSL 2 integration enabled if using Windows/Debian)
+* **Git**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Local Development Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/lna2-ux/singh-lovepreet-ui-garden.git](https://github.com/lna2-ux/singh-lovepreet-ui-garden.git)
+cd singh-lovepreet-ui-garden
+npm install
 
-### `npm run eject`
+npm start
+npm test -- --watchAll=false
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+npm run storybook
+docker build -t singh-lovepreet-ui-garden .
+docker rm -f Singh_Lovepreet_coding_assignment12
+docker run -d -p 8083:80 --name Singh_Lovepreet_coding_assignment12 singh-lovepreet-ui-garden
+git init
+git add .
+git commit -m "Complete Assignment 12: React TypeScript UI Component Library and Docker deployment"
+git branch -M main
+git remote add origin [https://github.com/lna2-ux/singh-lovepreet-ui-garden.git](https://github.com/lna2-ux/singh-lovepreet-ui-garden.git)
+git push -u origin main
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+PORT=8083 npm start
+git add .
+git commit -m "Update project documentation and clean code"
+git push
