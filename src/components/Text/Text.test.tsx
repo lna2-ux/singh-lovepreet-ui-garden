@@ -11,6 +11,6 @@ test("renders text content visible", () => {
 test("applies disabled styling when disabled prop is true", () => {
   render(<Text content="Disabled Text" disabled={true} />);
   const textElement = screen.getByText(/disabled text/i);
-  expect(textElement).toHaveStyle("color: rgb(136, 136, 136)");
+  expect(textElement).toHaveStyle("color: rgb(153, 153, 153)");
   expect(textElement).toHaveStyle("cursor: not-allowed");
 });
