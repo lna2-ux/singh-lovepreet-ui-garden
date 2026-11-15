@@ -55,6 +55,10 @@ npm run storybook
 docker build -t singh-lovepreet-ui-garden .
 docker rm -f Singh_Lovepreet_coding_assignment12
 docker run -d -p 8083:80 --name Singh_Lovepreet_coding_assignment12 singh-lovepreet-ui-garden
+
+explorer.exe http://localhost:8083
+
+
 git init
 git add .
 git commit -m "Complete Assignment 12: React TypeScript UI Component Library and Docker deployment"

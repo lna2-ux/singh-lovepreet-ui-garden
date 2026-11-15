@@ -1,18 +1,24 @@
-import React from 'react';
-import styled from 'styled-components';
-import { LabelProps } from './Label.types';
+import React from "react";
+import styled from "styled-components";
+import { LabelProps } from "./Label.types";
 
-const StyledLabel = styled.label<{ disabled?: boolean; color?: string }>`
-  font-family: sans-serif;
-  font-size: 1rem;
-  color: ${(props) => (props.disabled ? '#888888' : props.color || '#333333')};
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+const StyledLabel = styled.label<{ disabled?: boolean; textColor?: string }>`
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: ${(props) => (props.disabled ? "#999999" : props.textColor || "#333333")};
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "default")};
   opacity: ${(props) => (props.disabled ? 0.6 : 1)};
 `;
 
-export const Label: React.FC<LabelProps> = ({ text, htmlFor, disabled, color }) => {
+export const Label: React.FC<LabelProps> = ({
+  text,
+  disabled = false,
+  textColor,
+  htmlFor,
+}) => {
   return (
-    <StyledLabel htmlFor={htmlFor} disabled={disabled} color={color}>
+    <StyledLabel disabled={disabled} textColor={textColor} htmlFor={htmlFor}>
       {text}
     </StyledLabel>
   );

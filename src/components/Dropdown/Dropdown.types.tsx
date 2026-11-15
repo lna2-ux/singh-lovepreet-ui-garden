@@ -1,11 +1,9 @@
-export interface DropdownOption {
-  label: string;
-  value: string;
-}
+import React from "react";
 
-export interface DropdownProps {
-  options: DropdownOption[];
-  placeholder?: string;
+export interface DropdownProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+  options: { label: string; value: string }[];
   disabled?: boolean;
-  onChange?: (value: string) => void;
+  backgroundColor?: string;
+  placeholder?: string; // Add this line
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }

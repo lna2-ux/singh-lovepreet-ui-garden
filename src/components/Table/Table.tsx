@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import { TableProps } from './Table.types';
+import React from "react";
+import styled from "styled-components";
+import { TableProps } from "./Table.types";
 
 const StyledTableWrapper = styled.div<{ disabled?: boolean }>`
   overflow-x: auto;
   opacity: ${(props) => (props.disabled ? 0.6 : 1)};
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'default')};
-  pointer-events: ${(props) => (props.disabled ? 'none' : 'auto')};
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "default")};
+  pointer-events: ${(props) => (props.disabled ? "none" : "auto")};
 `;
 
 const StyledTable = styled.table`

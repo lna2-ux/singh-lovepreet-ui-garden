@@ -1,31 +1,36 @@
-import React from 'react';
-import styled from 'styled-components';
-import { DropdownProps } from './Dropdown.types';
+import React from "react";
+import styled from "styled-components";
+import { DropdownProps } from "./Dropdown.types";
 
-const StyledSelect = styled.select<{ disabled?: boolean }>`
+const StyledSelect = styled.select<{
+  disabled?: boolean;
+  backgroundColor?: string;
+}>`
+  font-family: "Nunito Sans", sans-serif;
   padding: 8px 12px;
-  font-size: 1rem;
   border-radius: 4px;
-  border: 1px solid #cccccc;
-  background-color: #ffffff;
-  color: #333333;
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+  border: 1px solid #ccc;
+  background-color: ${(props) => (props.disabled ? "#d3d3d3" : props.backgroundColor || "#ffffff")};
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   opacity: ${(props) => (props.disabled ? 0.6 : 1)};
-  width: 100%;
-  font-family: sans-serif;
+  color: #333;
 `;
 
-export const Dropdown: React.FC<DropdownProps> = ({ options, placeholder, disabled, value, onChange }) => {
+export const Dropdown: React.FC<DropdownProps> = ({
+  options,
+  disabled = false,
+  backgroundColor,
+  ...props
+}) => {
   return (
-    <StyledSelect disabled={disabled} value={value} onChange={onChange}>
-      {placeholder && (
-        <option value="" disabled hidden>
-          {placeholder}
-        </option>
-      )}
-      {options.map((option, index) => (
-        <option key={index} value={option.value}>
-          {option.label}
+    <StyledSelect
+      disabled={disabled}
+      backgroundColor={backgroundColor}
+      {...props}
+    >
+      {options.map((opt, index) => (
+        <option key={index} value={opt.value}>
+          {opt.label}
         </option>
       ))}
     </StyledSelect>

@@ -1,32 +1,28 @@
-import React from 'react';
-import styled from 'styled-components';
-import { RadioProps } from './Radio.types';
+import React from "react";
+import styled from "styled-components";
+import { RadioButtonProps } from "./RadioButton.types";
 
 const StyledLabel = styled.label<{ disabled?: boolean }>`
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
-  color: ${(props) => (props.disabled ? '#888888' : '#333333')};
+  font-family: "Nunito Sans", sans-serif;
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   opacity: ${(props) => (props.disabled ? 0.6 : 1)};
-  font-family: sans-serif;
+  color: ${(props) => (props.disabled ? "#999999" : "#333333")};
+  input {
+    cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
+    margin-right: 8px;
+  }
 `;
 
-const StyledInput = styled.input`
-  cursor: inherit;
-`;
-
-export const RadioButton: React.FC<RadioProps> = ({ label, name, value, checked, disabled, onChange }) => {
+export const RadioButton: React.FC<RadioButtonProps> = ({
+  label,
+  disabled = false,
+  ...props
+}) => {
   return (
     <StyledLabel disabled={disabled}>
-      <StyledInput 
-        type="radio" 
-        name={name} 
-        value={value} 
-        checked={checked} 
-        disabled={disabled} 
-        onChange={onChange}
-      />
+      <input type="radio" disabled={disabled} {...props} />
       {label}
     </StyledLabel>
   );
